@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    function computerPlays() {
+      const options = ['Rock', 'Paper', 'Scissors'];
+      let choice = options[Math.floor(Math.random() * options.length)]
+      return choice
+    }
+
+    let userSelection = prompt('Rock, Paper, or Scissors?');
+    let computerSelection = computerPlays();
+    console.log(userSelection)
+    console.log(computerSelection)
+    function singleRound(userSelection, computerSelection) {
+      let userSelectionLower = userSelection.toLowerCase();
+      let computerSelectionLower = computerSelection.toLowerCase();
+      let result = '';
+      if (userSelectionLower === computerSelectionLower) {
+        result = `Oh no, the Computer also selected ${computerSelection}. You tied!`
+      } else if ((userSelectionLower === 'rock') && (computerSelectionLower === 'scissors') ||
+          (userSelectionLower === 'paper') && (computerSelectionLower === 'rock') ||
+          (userSelectionLower === 'scissors') && (computerSelectionLower === 'paper')) {
+            result = `The Computer played ${computerSelection}, ${userSelectionLower} beats ${computerSelectionLower}. You win!`;
+          } else if ((userSelectionLower === 'rock') && (computerSelectionLower === 'paper') ||
+              (userSelectionLower === 'paper') && (computerSelectionLower === 'scissors') ||
+              (userSelectionLower === 'scissors') && (computerSelectionLower === 'rock')) {
+                result = `The Computer played ${computerSelection}, ${computerSelectionLower} beats ${userSelectionLower}. You lose!`;
+        } else {
+          result = `I'm sorry, ${userSelection} is not a valid input. Try again.`
+        }
+      return result
+    }
+    alert(singleRound(userSelection,computerSelection))
+
+  </script>
+</body>
+</html>
