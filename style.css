@@ -1,0 +1,23 @@
+body {
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  gap: 15px;
+}
+
+.score{
+  display: flex;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  padding: 5px 10px;
+}

@@ -1,61 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Page Title</title>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock, Paper, Scissors</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <script>
-
-    function game() {
-      function computerPlays() {
-        const options = ['Rock', 'Paper', 'Scissors'];
-        let choice = options[Math.floor(Math.random() * options.length)]
-        return choice
-      }   
-      
-      function singleRound(userSelection, computerSelection, userScore, computerScore) {
-        let userSelectionLower = userSelection.toLowerCase();
-        let computerSelectionLower = computerSelection.toLowerCase();
-        let result = '';
-        if (userSelectionLower === computerSelectionLower) {
-          result = `Oh no, the Computer also selected ${computerSelection}. You tied!`
-          ++userScore
-          ++computerScore
-        } else if ((userSelectionLower === 'rock') && (computerSelectionLower === 'scissors') ||
-            (userSelectionLower === 'paper') && (computerSelectionLower === 'rock') ||
-            (userSelectionLower === 'scissors') && (computerSelectionLower === 'paper')) {
-              result = `The Computer played ${computerSelection}, ${userSelectionLower} beats ${computerSelectionLower}. You win!`;
-              ++userScore
-            } else if ((userSelectionLower === 'rock') && (computerSelectionLower === 'paper') ||
-                (userSelectionLower === 'paper') && (computerSelectionLower === 'scissors') ||
-                (userSelectionLower === 'scissors') && (computerSelectionLower === 'rock')) {
-                  result = `The Computer played ${computerSelection}, ${computerSelectionLower} beats ${userSelectionLower}. You lose!`;
-                  ++computerScore
-          } else {
-            result = `I'm sorry, ${userSelection} is not a valid input. Try again.`
-          }
-        return [result, userScore, computerScore]
-      }
-
-      let userScore = 0
-      let computerScore = 0
-      let i = 1
-
-      while (i <= 5) {
-        computerSelection = computerPlays()
-        userSelection = prompt('Rock, Paper, or Scissors?');
-        roundResult = singleRound(userSelection,computerSelection,userScore,computerScore)
-        userScore = roundResult[1]
-        computerScore = roundResult[2]
-        alert(`${roundResult[0]} The score is: ${userScore} - ${computerScore}. There are ${5 - i} rounds left.`)
-        i++
-      }
-
-      alert(`The final score was ${userScore} - ${computerScore}. Thank you for playing!`)
-    }
-
-    game()
-  </script>
+  <div class="content">
+    <h1>Rock, Paper, Scissors</h1>
+    <div class="dialogue">Let's play Rock, Paper, Scissors. To start, click on your choice:</div>
+    <div class="buttons">
+      <button class="rock">
+        Rock
+      </button>
+      <button class="paper">
+        Paper
+      </button>
+      <button class="scissors">
+        Scissors
+      </button>
+    </div>
+    <div class="score">
+      <div class="user-score"></div>
+      <div class="divider"></div>
+      <div class="computer-score"></div>
+    </div>
+    <div class="rounds"></div>
+    <div class="play-again"></div>
+  </div>
 </body>
 </html>
